@@ -8,9 +8,9 @@ export default class App extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
-            token: 'fbb62bb2d4e60504e812ac86d3788def0ac492158b71998244d265989acab8cc',
-            serverUrl: 'http://121.241.115.206:51980',
-            dashboardID: '93bc57c0-9cc9-44c7-a3b0-dd4757411f93',
+            token: 'dea83533c9bd2a7f941c0483afeb1962293cb00c895afb05bfb43cde977e0757',
+            serverUrl: 'https://wyn-demo.grapecity.com/',
+            dashboardID: 'bf8eb401-4a29-4ccf-8b8b-e4d6213ef779',
             docTitle: 'Retail Sales Analysis',
             documentType: 'dbd',
             selectedScenario: 'column-9'
