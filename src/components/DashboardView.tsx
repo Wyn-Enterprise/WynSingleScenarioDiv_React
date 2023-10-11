@@ -5,7 +5,7 @@ import { WynIntegration } from '@grapecity/wyn-integration';
 export default class DashboardView extends React.Component<any, any> {
     constructor(props) {
         super(props);
-        this.state = {         
+        this.state = {
             docTitle: 'Retail Sales Analysis'
         };
     }
@@ -14,21 +14,23 @@ export default class DashboardView extends React.Component<any, any> {
 
     public render() {
         const { serverUrl, selectedScenario, dashboardId, token } = this.props;
-       
+
         if (this.viewerIns != null) {
             this.viewerIns.destroy();
         }
-      
-        let selectedScenarioStr = "";        
+
+        let selectedScenarioStr = "";
         WynIntegration.createDashboardViewer({
             baseUrl: serverUrl,
-            dashboardId: dashboardId,
+            defaults: {
+                dashboardId: dashboardId,
+                scenario: selectedScenario
+            },
             //theme: 'red',
-            token: token,
-            scenario: selectedScenario
+            token: token,            
             // for v5.0, v5.1 ignore
             //version: '5.0.21782.0',
-        }, '#viewer').then(ins => {            
+        }, '#viewer').then(ins => {
             this.viewerIns = ins;
         });
 
@@ -38,14 +40,14 @@ export default class DashboardView extends React.Component<any, any> {
                     {this.state.docTitle}
                 </div>
                 <div className="dashView">
-                    <div className="selection">                      
+                    <div className="selection">
                         <div className="selected">
                             <div className="selectedScenario">
                                 {selectedScenarioStr}
-                            </div>                          
-                        </div>                       
-                    </div>                    
-                    <div id="viewer" className="viewer1">                       
+                            </div>
+                        </div>
+                    </div>
+                    <div id="viewer" className="viewer1">
                     </div>
                 </div>
             </div>
